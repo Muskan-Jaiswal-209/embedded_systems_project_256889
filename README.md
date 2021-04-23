@@ -6,7 +6,7 @@
 
 |ON|OFF|
 |:--:|:--:|
-|![ON](simulation/Simulation_ON.png)|![OFF](simulation/Simulation_OFF.PNG)|
+|![ON](simulation/Simulation_ON.PNG)|![OFF](simulation/Simulation_OFF.PNG)|
 
 #### CI and Code Quality
 
