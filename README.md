@@ -1,8 +1,8 @@
 # embedded_systems_project_256889
 
-# Activity One
+## Activity One
 
-## In Action
+### In Action
 
 |ON|OFF|
 |:--:|:--:|
