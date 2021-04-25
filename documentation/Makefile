@@ -1,8 +1,5 @@
 ACTIVITY_NAME = activities
-all: 
-	doxygen $(ACTIVITY_NAME)_Doxyfile
-
-doc:
+all:
 	doxygen ./$(ACTIVITY_NAME)_Doxyfile
 
 clean:

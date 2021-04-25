@@ -8,9 +8,6 @@ SRC = ActivityOne.c
 # All header file paths
 INC = -I inc
 
-#Object copy to create hexfile
-OBJCOPY = avr-objcopy.exe
-
 #Avrdude
 AVRDUDE := avrdude
 
@@ -49,7 +46,7 @@ all:$(BUILD_DIR)
 	
 hex: $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).elf)
 	#create hex file
-	$(OBJCOPY) $(HFLAGS) $< $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).hex)
+	$(AVR_OBJ_CPY) $(HFLAGS) $< $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).hex)
 
 $(BUILD_DIR):
 	# Create directory to store the built files
@@ -62,7 +59,6 @@ analysis: $(SRC)
 doc:
 	#Build the code code documentation using Doxygen command line utility
 	make -C documentation
-	make -C documentation doc
 
 clean:
 	# Remove all the build files and generated document files
