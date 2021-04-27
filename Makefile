@@ -1,9 +1,11 @@
-PROJ_NAME = ActivityOne
+PROJ_NAME = Activities
 
 BUILD_DIR = Build
 
 # All Source code files
-SRC = ActivityOne.c
+SRC = src/ButtonSensorHeaterLED.c\
+src/TemperatureSensorADC.c\
+HeatControlSystem_Main.c
 
 # All header file paths
 INC = -I inc
@@ -42,7 +44,7 @@ endif
 
 all:$(BUILD_DIR)
 	# Compile the code and generate the ELF file
-	$(CC) -g -Wall -Os -mmcu=atmega328 -DF_CPU=16000000UL $(SRC) -o $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).elf)
+	$(CC) -g -Wall -Os -mmcu=atmega328 -DF_CPU=16000000UL $(INC) $(SRC) -o $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).elf)
 	
 hex: $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).elf)
 	#create hex file
@@ -62,6 +64,8 @@ doc:
 
 clean:
 	# Remove all the build files and generated document files
-	$(RM) -rf $(call FixPath,$(BUILD_DIR)/*)
+	rm -rf Build
+
 	make -C documentation clean
-	rmdir $(BUILD_DIR)
+#rmdir $(BUILD_DIR)
+#$(RM) $(call FixPath,$(BUILD_DIR)/*)	
