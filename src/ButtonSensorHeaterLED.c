@@ -12,6 +12,11 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
+
+/**
+ * @brief A function to operate the button and heater sensor
+ * 
+ */
 void PortB_dec()
 {
 DDRB|=(1<<PB0);
@@ -22,7 +27,10 @@ PORTB|=(1<<PB7);//Set bit 7 of DDR B
 
 }
 
-
+/**
+ * @brief A function to operate an LED based on the inputs provided by a button sensor and a heater input
+ * 
+ */
 void ButtonSensorHeater()
 {
         if(!(PINB&(1<<PB7))) //Checking if the input bit to 7th bit of pinB is made 0 from 1 by pressing led
