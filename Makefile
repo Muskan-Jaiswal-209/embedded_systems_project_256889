@@ -5,7 +5,9 @@ BUILD_DIR = Build
 # All Source code files
 SRC = src/ButtonSensorHeaterLED.c\
 src/TemperatureSensorADC.c\
+src/ADC_PWMoutput.c\
 HeatControlSystem_Main.c
+
 
 # All header file paths
 INC = -I inc

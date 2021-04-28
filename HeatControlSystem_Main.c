@@ -21,6 +21,7 @@ int main(void)
 {
     Buttons_LED_Init();
     Init_ADC();
+    TimerWaveGenMode();
     uint16_t temp;
 
     /**
@@ -37,7 +38,8 @@ int main(void)
                 _delay_ms(20);
                 SET_LED; //make 0th bit of port B as 1, makes led glow
                 temp = Read_ADC(0);
-                _delay_ms(200);
+                outputbyPWM(temp);
+                _delay_ms(20);
                 
             }
             else
