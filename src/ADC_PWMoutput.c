@@ -41,5 +41,8 @@ void outputbyPWM(uint16_t ADC_val){
         OCR1A = 973; //95% duty cycle
         _delay_ms(20);
     }
+    else{
+        OCR1A = 0; //0% output
+    }
 
 }

@@ -45,13 +45,16 @@ int main(void)
             else
             {
                 _delay_ms(20);
+                OCR1A = 0; //make PWM output 0 if switch is off
                 CLEAR_LED; // make led off
             }
         }
         else
         {
-                _delay_ms(20);
+                
                 CLEAR_LED; //make led off
+                OCR1A = 0; //make PWM output 0 if both switches are off
+                _delay_ms(20);
         }
     }
 
