@@ -85,6 +85,18 @@
 #define SET_PWM_AS_OUTPUT DDRB|=(1<<PB1)
 
 /**
+ * @brief A macro to check if the data is received into the buffer or not
+ * 
+ */
+#define UART_DATA_NOT_RECEIVED !(UCSR0A & (1<<RXC0))
+
+/**
+ * @brief A macro to check if the data is not written into the buffer
+ * 
+ */
+#define UART_DATA_NOT_WRITTEN !(UCSR0A & (1<<UDRE0))
+
+/**
  * @brief A function to operate the button and heater sensor
  * 
  */
@@ -114,7 +126,30 @@ void TimerWaveGenMode(void);
  * @brief A function which receives 10 bit of ADC input from temperature sensor and outputs as a fast PWM waveform.
  * 
  * @param ADC_val 
+ * @return char
  */
-void outputbyPWM(uint16_t ADC_val);
+char outputbyPWM(uint16_t ADC_val);
+
+
+/**
+ * @brief A program to initialize the UART serial communication
+ * 
+ * @param ubrr_value 
+ */
+void UARTinit(uint16_t ubrr_value);
+
+/**
+ * @brief A function to read characters coming from other UART port
+ * 
+ * @return char 
+ */
+char UARTreadchar();
+
+/**
+ * @brief A function to write characters to send it to other UART port
+ * 
+ * @param data 
+ */
+void UARTwritecharacter(char data);
 
 #endif //_HEATCONTROLSYSTEM_H_

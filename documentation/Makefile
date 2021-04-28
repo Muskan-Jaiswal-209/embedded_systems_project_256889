@@ -1,6 +1,6 @@
-ACTIVITY_NAME = activities
+DOXYFILE_NAME = Heatcontrolsystem
 all:
-	doxygen ./$(ACTIVITY_NAME)_Doxyfile
+	doxygen ./$(DOXYFILE_NAME)
 
 clean:
 	rm -rf html

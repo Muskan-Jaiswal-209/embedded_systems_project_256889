@@ -19,9 +19,11 @@
  */
 int main(void)
 {
-    Buttons_LED_Init();
-    Init_ADC();
-    TimerWaveGenMode();
+    Buttons_LED_Init(); //Initialise the button input registers
+    Init_ADC(); //Initialise the ADC
+    TimerWaveGenMode(); //Initialise the registers for TIMER1 as fast PWM
+    UARTinit(103); //Initialise UART registers
+    char temperature_data;
     uint16_t temp;
 
     /**
@@ -38,7 +40,8 @@ int main(void)
                 _delay_ms(20);
                 SET_LED; //make 0th bit of port B as 1, makes led glow
                 temp = Read_ADC(0);
-                outputbyPWM(temp);
+                temperature_data = outputbyPWM(temp);
+                UARTwritecharacter(temperature_data);
                 _delay_ms(20);
                 
             }
