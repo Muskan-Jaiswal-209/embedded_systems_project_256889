@@ -19,21 +19,39 @@
  */
 int main(void)
 {
-    PortB_dec();
+    Buttons_LED_Init();
     Init_ADC();
     uint16_t temp;
+
     /**
      * @brief Infinite loop to run the microcontroller
      * 
      */
     while(1)
     {
-        ButtonSensorHeater();
-        temp = Read_ADC(0);
-        _delay_ms(200);
+       if(BUTTON_SENSOR_ON) //Checking if the input bit to 7th bit of pinB is made 0 from 1 by pressing led
+        {
+
+            if(HEATER_ON) //Checking if the input bit to 6th bit of pinB is made 0 from 1 by pressing led
+            {
+                _delay_ms(20);
+                SET_LED; //make 0th bit of port B as 1, makes led glow
+                temp = Read_ADC(0);
+                _delay_ms(200);
+                
+            }
+            else
+            {
+                _delay_ms(20);
+                CLEAR_LED; // make led off
+            }
+        }
+        else
+        {
+                _delay_ms(20);
+                CLEAR_LED; //make led off
+        }
     }
-
-
 
  return 0;   
 }

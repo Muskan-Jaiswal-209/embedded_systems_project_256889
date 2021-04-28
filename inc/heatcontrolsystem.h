@@ -13,18 +13,32 @@
 
 #include <avr/io.h>
 
+
+
+
+#define BUTTON_SENSOR_ON !(PINB&(1<<PB7))
+
+#define HEATER_ON !(PINB&(1<<PB6))
+
+#define SET_LED PORTB|=(1<<PB0)
+
+#define CLEAR_LED PORTB&=~(1<<PB0)
+
+#define SET_LED_AS_OUTPUT DDRB|=(1<<PB0)
+
+#define SET_BUTTON_AS_INPUT DDRB&=~(1<<PB6)
+
+#define SET_HEATER_AS_INPUT DDRB&=~(1<<PB7)
+
+#define PULLUP_BUTTON PORTB|=(1<<PB6)
+
+#define PULLUP_HEATER PORTB|=(1<<PB7)
+
 /**
  * @brief A function to operate the button and heater sensor
  * 
  */
-void PortB_dec();
-
-/**
- * @brief A function to operate an LED based on the inputs provided by a button sensor and a heater input
- * 
- */
-void ButtonSensorHeater();
-
+void Buttons_LED_Init();
 
 /**
  * @brief A function to initialise the analog to digital converter

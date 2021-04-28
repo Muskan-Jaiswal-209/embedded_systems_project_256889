@@ -17,40 +17,14 @@
  * @brief A function to operate the button and heater sensor
  * 
  */
-void PortB_dec()
+void Buttons_LED_Init()
 {
-DDRB|=(1<<PB0);
-DDRB&=~(1<<PB6); //clear bit 6 of DDR B
-PORTB|=(1<<PB6); //Set bit 6 of Port B
-DDRB&=~(1<<PB7); //clear bit 7 of DDR B
-PORTB|=(1<<PB7);//Set bit 7 of DDR B
+SET_LED_AS_OUTPUT; //set led as output port
+SET_BUTTON_AS_INPUT; //clear bit 6 of DDR B
+PULLUP_BUTTON; //Set bit 6 of Port B
+SET_HEATER_AS_INPUT; //clear bit 7 of DDR B
+PULLUP_HEATER;//Set bit 7 of DDR B
 
 }
 
-/**
- * @brief A function to operate an LED based on the inputs provided by a button sensor and a heater input
- * 
- */
-void ButtonSensorHeater()
-{
-        if(!(PINB&(1<<PB7))) //Checking if the input bit to 7th bit of pinB is made 0 from 1 by pressing led
-        {
-
-            if(!(PINB&(1<<PB6))) //Checking if the input bit to 6th bit of pinB is made 0 from 1 by pressing led
-            {
-                _delay_ms(20);
-                PORTB|=(1<<PB0); //make 0th bit of port B as 1, makes led glow
-            }
-            else
-            {
-                _delay_ms(20);
-                PORTB&=~(1<<PB0); // make led off
-            }
-        }
-        else
-        {
-                _delay_ms(20);
-                PORTB&=~(1<<PB0); //make led off
-        }
-}
 
