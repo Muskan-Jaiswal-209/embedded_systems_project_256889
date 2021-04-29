@@ -22,7 +22,6 @@ Below shows two images where in the 1st image shows the status of the simulation
 |Circuit|RAM Table|
 |:--:|:--:|
 |![CIRCUIT](https://github.com/hemanthasapu/embedded_systems_project_256889/blob/main/simulation/Circuit.gif)|![RAM_TABLE](https://github.com/hemanthasapu/embedded_systems_project_256889/blob/main/simulation/RAM_table.gif)|
-|:--:|:--:|
 |CRO|Serial Monitor|
 |:--:|:--:|
 |![CRO](https://github.com/hemanthasapu/embedded_systems_project_256889/blob/main/simulation/Oscilloscope.gif)|![ON](https://github.com/hemanthasapu/embedded_systems_project_256889/blob/main/simulation/Serial_Monitor.gif)|
