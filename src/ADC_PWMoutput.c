@@ -36,7 +36,7 @@ void outputbyPWM(uint16_t ADC_val){
     int i;
     char temperature[10];
 
-    if((ADC_val>=0) && (ADC_val<=209)){
+    if(ADC_val<=209){
 
         OCR1A = 205; //20% duty cycle
         temperature[0] = '2';
