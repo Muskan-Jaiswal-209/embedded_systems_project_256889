@@ -16,6 +16,9 @@ Below shows two images where in the 1st image shows the status of the simulation
 #### OFF
 ![OFF](https://github.com/hemanthasapu/embedded_systems_project_256889/blob/main/simulation/Simulation_OFF.PNG)
 
+### Video
+![SIMULATION VIDEO](https://github.com/hemanthasapu/embedded_systems_project_256889/blob/main/simulation/Simulation_of_project.avi)
+
 ### Functionality 
 
 * When the two switches are closed, the first LED glows indicating the actuation of the system and the heater.
