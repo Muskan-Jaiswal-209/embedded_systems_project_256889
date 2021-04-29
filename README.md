@@ -1,4 +1,4 @@
-# embedded_systems_project_256889
+# embedded_systems_project_256889 - Hemanth A
 
 ## Heat Control System 
 
