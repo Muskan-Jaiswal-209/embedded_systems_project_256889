@@ -28,6 +28,16 @@
 #define UART_DATA_NOT_WRITTEN !(UCSR0A & (1<<UDRE0))
 
 /**
+ * @brief A macro to enable the uart and uart interrupts
+ * 
+ */
+#define UART_ENABLED UCSR0B|=(1<<RXEN0)|(1<<TXEN0)|(1<<RXCIE0)|(1<<TXCIE0)
+/**
+ * @brief A macro to define uart character size
+ * 
+ */
+#define UART_CHARACTER_SIZE UCSR0C|=(1<<UCSZ00)|(1<<UCSZ01)
+/**
  * @brief A program to initialize the UART serial communication
  * 
  * @param ubrr_value 
