@@ -16,8 +16,8 @@
  * 
  */
 void Init_ADC(){
-    ADMUX = (1<<REFS0);
-    ADCSRA = (1<<ADEN)|(7<<ADPS0);
+    SET_REFERENCE_VOLTAGE;
+    ADC_ENABLE_PRESCALE;
 
 }
 
@@ -35,8 +35,8 @@ uint16_t Read_ADC(uint8_t ch)
 
     ADCSRA|=(1<<ADSC);
 
-    while(!(ADCSRA & (1<<ADIF)));
-    ADCSRA|=(1<<ADIF);
+    while(ADC_INTERRUPT_NOT_OCCURED);
+    SET_ADC_INTERRUPT_FLAG;
     return(ADC);
 
 }

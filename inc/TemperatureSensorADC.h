@@ -13,6 +13,30 @@
 
 
 #include <avr/io.h>
+
+/**
+ * @brief A macro to enable and prescale the analog to digital converter
+ * 
+ */
+#define ADC_ENABLE_PRESCALE ADCSRA=(1<<ADEN)|(7<<ADPS0)
+
+/**
+ * @brief A macro to set reference voltage for mux
+ * 
+ */
+#define SET_REFERENCE_VOLTAGE ADMUX=(1<<REFS0)
+
+/**
+ * @brief A macro to set ADC interrupt flag
+ * 
+ */
+#define SET_ADC_INTERRUPT_FLAG ADCSRA|=(1<<ADIF)
+
+/**
+ * @brief A macro to check if interrupt has not occured
+ * 
+ */
+#define ADC_INTERRUPT_NOT_OCCURED !(ADCSRA & (1<<ADIF))
 /**
  * @brief A function to initialise the analog to digital converter
  * 
