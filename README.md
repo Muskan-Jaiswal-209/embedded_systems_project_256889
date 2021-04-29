@@ -17,7 +17,7 @@ Below shows two images where in the 1st image shows the status of the simulation
 ![OFF](https://github.com/hemanthasapu/embedded_systems_project_256889/blob/main/simulation/Simulation_OFF.PNG)
 
 ### Video
-![SIMULATION VIDEO](https://github.com/hemanthasapu/embedded_systems_project_256889/blob/main/simulation/Simulation_of_project.avi)
+[![SIMULATION VIDEO](https://github.com/hemanthasapu/embedded_systems_project_256889/blob/main/simulation/Simulation_ON.PNG)](https://github.com/hemanthasapu/embedded_systems_project_256889/blob/main/simulation/Simulation_of_project.avi)
 
 ### Functionality 
 
