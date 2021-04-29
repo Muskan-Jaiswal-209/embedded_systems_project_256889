@@ -1,17 +1,17 @@
 /**
  * @file ButtonSensorHeaterLED.c
  * @author Hemanth A (hemanth.ec17@bmsce.ac.in)
- * @brief Activity one of embedded systems
+ * @brief A file where the functions for button and heater are implememted
  * @version 0.1
  * @date 2021-04-23
  * 
  * @copyright Copyright (c) 2021
  * 
  */
-#include "heatcontrolsystem.h"
+
 #include <avr/io.h>
 #include <util/delay.h>
-
+#include "ButtonSensorHeaterLED.h"
 
 /**
  * @brief A function to operate the button and heater sensor

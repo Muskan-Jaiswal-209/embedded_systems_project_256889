@@ -8,9 +8,12 @@
  * @copyright Copyright (c) 2021
  * 
  */
-#include "heatcontrolsystem.h"
 #include <avr/io.h>
 #include <util/delay.h>
+#include "ButtonSensorHeaterLED.h"
+#include "TemperatureSensorADC.h"
+#include "ADC_PWMoutput.h"
+#include "SerialCommunicationUART.h"
 
 /**
  * @brief Main function
