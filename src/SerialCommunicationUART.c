@@ -51,6 +51,7 @@ void UARTwritecharacter(char data){
 while(UART_DATA_NOT_WRITTEN){
 
 }
+
 UDR0 = data;
 
 }
