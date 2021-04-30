@@ -25,20 +25,7 @@ void UARTinit(uint16_t ubrr_value){
 }
 
 
-/**
- * @brief A function to read characters coming from other UART port
- * 
- * @return char 
- */
-char UARTreadchar(){
 
-while(UART_DATA_NOT_RECEIVED){
-
-}
-
-return UDR0;
-
-}
 
 
 /**
