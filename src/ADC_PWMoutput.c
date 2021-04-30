@@ -41,7 +41,7 @@ const char* outputbyPWM(uint16_t ADC_val){
         OCR1A = 205; //20% duty cycle
         temperature[0] = '2';
         temperature[1] = '0';
-        temperature[2] = 176;
+        temperature[2] = 176; //adding characters separately because degree character didnt work, it was encoded in UTF8.
         temperature[3] = 'C';
         temperature[4] = ' ';
         temperature[5] = '\0';
