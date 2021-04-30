@@ -27,6 +27,8 @@ int main(void)
     TimerWaveGenMode(); //Initialise the registers for TIMER1 as fast PWM
     UARTinit(103); //Initialise UART registers
     uint16_t temp;
+    const char* tempvalue;
+    int i;
 
     /**
      * @brief Infinite loop to run the microcontroller
@@ -42,7 +44,11 @@ int main(void)
                 _delay_ms(20);
                 SET_LED; //make 0th bit of port B as 1, makes led glow
                 temp = Read_ADC(0);
-                outputbyPWM(temp);
+                tempvalue = outputbyPWM(temp);
+                for(i=0;i<=5;i++){
+                UARTwritecharacter(tempvalue[i]);
+                
+                }
                 _delay_ms(20);
                 
             }

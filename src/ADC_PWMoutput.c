@@ -13,7 +13,7 @@
 #include "ADC_PWMoutput.h"
 #include "SerialCommunicationUART.h"
 #include <string.h>
-
+#include <stdlib.h>
 /**
  * @brief A function to setup timer1 with channel A for pulse width modulation with wave generation mode of 10 bits fast PWM and prescaling of 64.
  * 
@@ -32,9 +32,9 @@ void TimerWaveGenMode(void){
  * @param ADC_val 
  * @return char
  */
-void outputbyPWM(uint16_t ADC_val){
-    int i;
-    char temperature[10];
+const char* outputbyPWM(uint16_t ADC_val){
+    //int i;
+    static char temperature[10]; 
 
     if(ADC_val<=209){
 
@@ -45,12 +45,10 @@ void outputbyPWM(uint16_t ADC_val){
         temperature[3] = 'C';
         temperature[4] = ' ';
         temperature[5] = '\0';
-        for(i=0;i<=5;i++){
-            UARTwritecharacter(temperature[i]);
-        }
-        _delay_ms(20);
+        return temperature;
+        
     }
-    else if((ADC_val>=210) && (ADC_val<=509)){
+    else if((ADC_val<=509)){
 
         OCR1A = 410; //40% duty cycle
         temperature[0] = '2';
@@ -59,12 +57,10 @@ void outputbyPWM(uint16_t ADC_val){
         temperature[3] = 'C';
         temperature[4] = ' ';
         temperature[5] = '\0';
-        for(i=0;i<5;i++){
-            UARTwritecharacter(temperature[i]);
-        }
-        _delay_ms(20);
+        return temperature;
+        
     }
-    else if((ADC_val>=510) && (ADC_val<=709)){
+    else if((ADC_val<=709)){
 
         OCR1A = 717;//70% duty cycle
         temperature[0] = '2';
@@ -73,12 +69,10 @@ void outputbyPWM(uint16_t ADC_val){
         temperature[3] = 'C';
         temperature[4] = ' ';
         temperature[5] = '\0';
-        for(i=0;i<=5;i++){
-            UARTwritecharacter(temperature[i]);
-        }        
-        _delay_ms(20);
+        return temperature; 
+        
     }
-    else if((ADC_val>=710) && (ADC_val<=1024)){
+    else if((ADC_val<=1024)){
 
         OCR1A = 973; //95% duty cycle
         temperature[0] = '3';
@@ -87,10 +81,7 @@ void outputbyPWM(uint16_t ADC_val){
         temperature[3] = 'C';
         temperature[4] = ' ';
         temperature[5] = '\0';
-        for(i=0;i<=5;i++){
-            UARTwritecharacter(temperature[i]);
-        }        
-        _delay_ms(20);
+        return temperature; 
     }
     else{
         OCR1A = 0; //0% output
@@ -100,10 +91,8 @@ void outputbyPWM(uint16_t ADC_val){
         temperature[3] = ' ';
         temperature[4] = ' ';
         temperature[5] = '\0';
-        for(i=0;i<=5;i++){
-            UARTwritecharacter(temperature[i]);
-        }
-        _delay_ms(20);
+        return temperature;
+        
     }
 
 }
