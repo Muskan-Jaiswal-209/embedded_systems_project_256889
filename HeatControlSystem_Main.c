@@ -15,6 +15,20 @@
 #include "ADC_PWMoutput.h"
 #include "SerialCommunicationUART.h"
 
+
+/**
+ * @brief A structure for the variables used inside the main function 
+ * 
+ */
+typedef struct{
+
+    uint16_t temp;
+    const char* tempvalue;
+
+}variables;
+
+variables var;
+
 /**
  * @brief Main function
  * 
@@ -26,8 +40,7 @@ int main(void)
     Init_ADC(); //Initialise the ADC
     TimerWaveGenMode(); //Initialise the registers for TIMER1 as fast PWM
     UARTinit(103); //Initialise UART registers
-    uint16_t temp;
-    const char* tempvalue;
+    
     int i;
 
     /**
@@ -43,11 +56,11 @@ int main(void)
             {
                 _delay_ms(20);
                 SET_LED; //make 0th bit of port B as 1, makes led glow
-                temp = Read_ADC(0);
-                tempvalue = outputbyPWM(temp);
+                var.temp = Read_ADC(0);
+                var.tempvalue = outputbyPWM(var.temp);
                 for(i=0;i<=5;i++){
-                UARTwritecharacter(tempvalue[i]);
-                
+                UARTwritecharacter(var.tempvalue[i]);
+
                 }
                 _delay_ms(20);
                 
